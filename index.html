@@ -1,0 +1,1131 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUMÉRA | Women's Jewellery</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf7;
+            color: #332727;
+        }
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: rgba(255, 250, 247, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(120, 80, 60, 0.1);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            color: #8b5e55;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #493b38;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #b47b70;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .icon {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .icon:hover {
+            transform: translateY(-3px);
+            color: #b47b70;
+        }
+
+        #cartCount {
+            background: #9b675d;
+            color: white;
+            font-size: 10px;
+            padding: 3px 7px;
+            border-radius: 50%;
+            position: relative;
+            top: -12px;
+            left: -8px;
+        }
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 7% 60px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,250,247,1) 25%,
+                    rgba(255,250,247,0.7) 55%,
+                    rgba(255,250,247,0.05) 100%
+                ),
+                url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 560px;
+            animation: fadeUp 1.2s ease;
+        }
+
+        .small-title {
+            color: #a36d62;
+            letter-spacing: 5px;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(55px, 7vw, 95px);
+            line-height: 0.9;
+            font-weight: 500;
+            color: #493331;
+        }
+
+        .hero h1 span {
+            color: #a36d62;
+            font-style: italic;
+        }
+
+        .hero p {
+            margin: 30px 0;
+            max-width: 470px;
+            color: #655451;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #8f6057;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.4s;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #5e403b;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(80,50,40,0.2);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- SECTION ---------- */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #a36d62;
+            letter-spacing: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        /* ---------- CATEGORIES ---------- */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .category {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 120px 120px 20px 20px;
+            cursor: pointer;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .category:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 35px 15px 25px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(transparent, rgba(30,20,15,0.8));
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+        }
+
+        /* ---------- PRODUCTS ---------- */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            border: 1px solid #d8bbb4;
+            background: transparent;
+            color: #76534d;
+            padding: 9px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #8f6057;
+            color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(80,50,40,0.06);
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(80,50,40,0.13);
+        }
+
+        .product-image {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product:hover img {
+            transform: scale(1.07);
+        }
+
+        .heart {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 38px;
+            height: 38px;
+            background: white;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .heart:hover {
+            transform: scale(1.15);
+        }
+
+        .heart.liked {
+            color: #a85555;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info small {
+            color: #aa7a70;
+        }
+
+        .product-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .price {
+            color: #76534d;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 25px;
+            background: #f1e4df;
+            color: #694941;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #8f6057;
+            color: white;
+        }
+
+        /* ---------- PROMO ---------- */
+
+        .promo {
+            margin: 30px 7%;
+            min-height: 400px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            background:
+                linear-gradient(90deg,
+                    rgba(48,31,27,0.9),
+                    rgba(48,31,27,0.2)),
+                url("https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1600&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .promo-content {
+            max-width: 500px;
+        }
+
+        .promo h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 55px;
+            font-weight: 500;
+        }
+
+        .promo p {
+            margin: 20px 0;
+            line-height: 1.7;
+        }
+
+        /* ---------- NEWSLETTER ---------- */
+
+        .newsletter {
+            text-align: center;
+            background: #f3e8e3;
+        }
+
+        .newsletter h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+        }
+
+        .newsletter p {
+            margin: 10px auto 25px;
+            max-width: 500px;
+            color: #725d57;
+        }
+
+        .subscribe {
+            display: flex;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .subscribe input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+
+        .subscribe button {
+            border: none;
+            padding: 0 25px;
+            background: #8f6057;
+            color: white;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            padding: 50px 7%;
+            background: #352624;
+            color: #e8d8d2;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #c8b5af;
+            font-size: 13px;
+            line-height: 2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            background: #241918;
+            color: #a9938d;
+            padding: 15px;
+            font-size: 12px;
+        }
+
+        /* ---------- TOAST ---------- */
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #352624;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media(max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .hero {
+                background-position: 65% center;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .promo {
+                margin: 10px 5%;
+                padding: 35px;
+            }
+
+            .promo h2 {
+                font-size: 42px;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+            }
+
+            .subscribe {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .subscribe input,
+            .subscribe button {
+                border-radius: 30px;
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">LUMÉRA</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <span class="icon" onclick="searchJewellery()">⌕</span>
+        <span class="icon">♡</span>
+        <span class="icon">🛍️<sup id="cartCount">0</sup></span>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Timeless Elegance
+        </div>
+
+        <h1>
+            Jewelry that<br>
+            tells your <span>story.</span>
+        </h1>
+
+        <p>
+            Discover delicate pieces designed to celebrate
+            your individuality. From everyday elegance to
+            unforgettable moments.
+        </p>
+
+        <a href="#shop" class="btn">
+            Explore Collection →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- COLLECTIONS -->
+
+<section id="collections">
+
+    <div class="section-title">
+        <span>Curated For You</span>
+        <h2>Our Collections</h2>
+    </div>
+
+    <div class="categories">
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80">
+            <div class="category-name">Necklaces</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80">
+            <div class="category-name">Earrings</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80">
+            <div class="category-name">Rings</div>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=800&q=80">
+            <div class="category-name">Bracelets</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section id="shop">
+
+    <div class="section-title">
+
+        <span>Handpicked For You</span>
+
+        <h2>Signature Pieces</h2>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('necklace', this)">
+            Necklaces
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('earring', this)">
+            Earrings
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('ring', this)">
+            Rings
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('bracelet', this)">
+            Bracelets
+        </button>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product" data-category="necklace">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>NECKLACE</small>
+
+                <h3>Golden Pearl Drop</h3>
+
+                <div class="price">₹2,499</div>
+
+                <button class="add-btn" onclick="addToCart('Golden Pearl Drop')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product" data-category="earring">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>EARRINGS</small>
+
+                <h3>Rose Gold Hoops</h3>
+
+                <div class="price">₹1,899</div>
+
+                <button class="add-btn" onclick="addToCart('Rose Gold Hoops')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product" data-category="ring">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>RING</small>
+
+                <h3>Crystal Promise Ring</h3>
+
+                <div class="price">₹2,999</div>
+
+                <button class="add-btn" onclick="addToCart('Crystal Promise Ring')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product" data-category="bracelet">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>BRACELET</small>
+
+                <h3>Delicate Charm</h3>
+
+                <div class="price">₹1,699</div>
+
+                <button class="add-btn" onclick="addToCart('Delicate Charm')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product" data-category="necklace">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>NECKLACE</small>
+
+                <h3>Moonlight Pendant</h3>
+
+                <div class="price">₹2,299</div>
+
+                <button class="add-btn" onclick="addToCart('Moonlight Pendant')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product" data-category="earring">
+
+            <div class="product-image">
+
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80">
+
+                <div class="heart" onclick="toggleHeart(this)">♡</div>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>EARRINGS</small>
+
+                <h3>Elegant Pearl Studs</h3>
+
+                <div class="price">₹1,299</div>
+
+                <button class="add-btn" onclick="addToCart('Elegant Pearl Studs')">
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+
+<div class="promo" id="about">
+
+    <div class="promo-content">
+
+        <div class="small-title">
+            The Luméra Story
+        </div>
+
+        <h2>
+            Made to shine.<br>
+            Made for you.
+        </h2>
+
+        <p>
+            Every Luméra piece is inspired by the beauty
+            of individuality — timeless designs created
+            to become part of your most beautiful moments.
+        </p>
+
+        <a href="#shop" class="btn">
+            Discover More
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <h2>Stay in the Glow ✨</h2>
+
+    <p>
+        Subscribe for new collections, exclusive offers
+        and a little sparkle delivered to your inbox.
+    </p>
+
+    <div class="subscribe">
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email address"
+        >
+
+        <button onclick="subscribe()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        <h3>LUMÉRA</h3>
+
+        <p>
+            Timeless jewellery designed for
+            modern women who love to shine.
+        </p>
+    </div>
+
+    <div>
+        <h4>SHOP</h4>
+
+        <p><a href="#shop">Necklaces</a></p>
+        <p><a href="#shop">Earrings</a></p>
+        <p><a href="#shop">Rings</a></p>
+        <p><a href="#shop">Bracelets</a></p>
+    </div>
+
+    <div>
+        <h4>HELP</h4>
+
+        <p><a href="#">Shipping</a></p>
+        <p><a href="#">Returns</a></p>
+        <p><a href="#">Care Guide</a></p>
+        <p><a href="#">Contact</a></p>
+    </div>
+
+    <div>
+        <h4>FOLLOW</h4>
+
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Pinterest</a></p>
+        <p><a href="#">Facebook</a></p>
+    </div>
+
+</footer>
+
+<div class="copyright">
+    © 2026 LUMÉRA Jewellery. Crafted with elegance.
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Added to your bag ✨
+</div>
+
+
+<script>
+
+    let cart = 0;
+
+
+    /* ADD TO CART */
+
+    function addToCart(productName) {
+
+        cart++;
+
+        document.getElementById("cartCount").innerText = cart;
+
+        showToast(productName + " added to your bag ✨");
+    }
+
+
+    /* HEART */
+
+    function toggleHeart(element) {
+
+        element.classList.toggle("liked");
+
+        if (element.classList.contains("liked")) {
+
+            element.innerHTML = "♥";
+
+        } else {
+
+            element.innerHTML = "♡";
+
+        }
+    }
+
+
+    /* TOAST */
+
+    function showToast(message) {
+
+        const toast = document.getElementById("toast");
+
+        toast.innerText = message;
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2200);
+    }
+
+
+    /* PRODUCT FILTER */
+
+    function filterProducts(category, button) {
+
+        const products = document.querySelectorAll(".product");
+
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        buttons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+
+        products.forEach(product => {
+
+            if (
+                category === "all" ||
+                product.dataset.category === category
+            ) {
+
+                product.style.display = "block";
+
+                setTimeout(() => {
+                    product.style.opacity = "1";
+                    product.style.transform = "translateY(0)";
+                }, 50);
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* SEARCH */
+
+    function searchJewellery() {
+
+        const search = prompt(
+            "What jewellery are you looking for?"
+        );
+
+        if (search) {
+
+            const products = document.querySelectorAll(".product");
+
+            products.forEach(product => {
+
+                const text =
+                    product.innerText.toLowerCase();
+
+                if (text.includes(search.toLowerCase())) {
+
+                    product.style.display = "block";
+
+                    product.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }
+
+            });
+
+        }
+
+    }
+
+
+    /* NEWSLETTER */
+
+    function subscribe() {
+
+        const email =
+            document.getElementById("email").value;
+
+        if (email === "") {
+
+            showToast("Please enter your email 💌");
+
+        } else {
+
+            showToast("Welcome to the Luméra family ✨");
+
+            document.getElementById("email").value = "";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
+```
+
